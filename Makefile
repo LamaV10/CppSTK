@@ -117,24 +117,24 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named SuperTuxKart
+# Target rules for targets named CppSTK
 
 # Build rule for target.
-SuperTuxKart: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 SuperTuxKart
-.PHONY : SuperTuxKart
+CppSTK: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CppSTK
+.PHONY : CppSTK
 
 # fast build rule for target.
-SuperTuxKart/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SuperTuxKart.dir/build.make CMakeFiles/SuperTuxKart.dir/build
-.PHONY : SuperTuxKart/fast
+CppSTK/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CppSTK.dir/build.make CMakeFiles/CppSTK.dir/build
+.PHONY : CppSTK/fast
 
 main.o: main.cpp.o
 .PHONY : main.o
 
 # target to build an object file
 main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SuperTuxKart.dir/build.make CMakeFiles/SuperTuxKart.dir/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CppSTK.dir/build.make CMakeFiles/CppSTK.dir/main.cpp.o
 .PHONY : main.cpp.o
 
 main.i: main.cpp.i
@@ -142,7 +142,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SuperTuxKart.dir/build.make CMakeFiles/SuperTuxKart.dir/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CppSTK.dir/build.make CMakeFiles/CppSTK.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -150,7 +150,7 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SuperTuxKart.dir/build.make CMakeFiles/SuperTuxKart.dir/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CppSTK.dir/build.make CMakeFiles/CppSTK.dir/main.cpp.s
 .PHONY : main.cpp.s
 
 # Help Target
@@ -161,7 +161,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... SuperTuxKart"
+	@echo "... CppSTK"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

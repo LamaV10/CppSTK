@@ -63,7 +63,7 @@ CMAKE_BINARY_DIR = /home/marcel/Documents/IT/C++/CppSTK
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/SuperTuxKart.dir/all
+all: CMakeFiles/CppSTK.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -71,34 +71,34 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/SuperTuxKart.dir/clean
+clean: CMakeFiles/CppSTK.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/SuperTuxKart.dir
+# Target rules for target CMakeFiles/CppSTK.dir
 
 # All Build rule for target.
-CMakeFiles/SuperTuxKart.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SuperTuxKart.dir/build.make CMakeFiles/SuperTuxKart.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SuperTuxKart.dir/build.make CMakeFiles/SuperTuxKart.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/marcel/Documents/IT/C++/CppSTK/CMakeFiles --progress-num=1,2 "Built target SuperTuxKart"
-.PHONY : CMakeFiles/SuperTuxKart.dir/all
+CMakeFiles/CppSTK.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CppSTK.dir/build.make CMakeFiles/CppSTK.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CppSTK.dir/build.make CMakeFiles/CppSTK.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/marcel/Documents/IT/C++/CppSTK/CMakeFiles --progress-num=1,2 "Built target CppSTK"
+.PHONY : CMakeFiles/CppSTK.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/SuperTuxKart.dir/rule: cmake_check_build_system
+CMakeFiles/CppSTK.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/marcel/Documents/IT/C++/CppSTK/CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/SuperTuxKart.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/CppSTK.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/marcel/Documents/IT/C++/CppSTK/CMakeFiles 0
-.PHONY : CMakeFiles/SuperTuxKart.dir/rule
+.PHONY : CMakeFiles/CppSTK.dir/rule
 
 # Convenience name for target.
-SuperTuxKart: CMakeFiles/SuperTuxKart.dir/rule
-.PHONY : SuperTuxKart
+CppSTK: CMakeFiles/CppSTK.dir/rule
+.PHONY : CppSTK
 
 # clean rule for target.
-CMakeFiles/SuperTuxKart.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SuperTuxKart.dir/build.make CMakeFiles/SuperTuxKart.dir/clean
-.PHONY : CMakeFiles/SuperTuxKart.dir/clean
+CMakeFiles/CppSTK.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/CppSTK.dir/build.make CMakeFiles/CppSTK.dir/clean
+.PHONY : CMakeFiles/CppSTK.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.
