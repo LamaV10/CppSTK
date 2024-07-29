@@ -1,0 +1,3 @@
+/home/marcel/Documents/IT/C++/CppSTK/CMakeFiles/SuperTuxKart.dir
+/home/marcel/Documents/IT/C++/CppSTK/CMakeFiles/edit_cache.dir
+/home/marcel/Documents/IT/C++/CppSTK/CMakeFiles/rebuild_cache.dir
