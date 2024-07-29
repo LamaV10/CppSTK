@@ -137,11 +137,11 @@ int main(int argc, char* argv[]) {
         if (currentKeyStates[SDL_SCANCODE_D]) {
             car.rotate(false, true);
         }
-        if (currentKeyStates[SDL_SCANCODE_W]) {
+        if (currentKeyStates[SDL_SCANCODE_S]) {
             car.move_forward();
             moving = true;
         }
-        if (currentKeyStates[SDL_SCANCODE_S]) {
+        if (currentKeyStates[SDL_SCANCODE_W]) {
             car.move_backward();
             moving = true;
         }
