@@ -28,6 +28,7 @@ public:
     double max_vel;
     double rotation_vel;
     double acceleration;
+    double vel_scale;
 
     Car(SDL_Texture* texture, Vec2 pos, double max_vel, double rotation_vel)
         : texture(texture), pos(pos), vel(0), angle(0), max_vel(max_vel), rotation_vel(rotation_vel), acceleration(0.1) {}
@@ -43,7 +44,8 @@ public:
     }
 
     void move_forward() {
-        vel = std::max(vel - acceleration, -max_vel);
+        vel_scale = 2;
+        vel = std::max(vel - acceleration * vel_scale, -max_vel * vel_scale);
         update_position();
     }
 
