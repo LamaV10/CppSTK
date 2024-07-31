@@ -7,8 +7,8 @@
 #include <thread>
 
 // Konstanten
-const int WIDTH = 800;
-const int HEIGHT = 600;
+const int WIDTH = 1920;
+const int HEIGHT = 1080;
 const double PI = 3.14159265358979323846;
 
 // Vektor2D-Klasse
@@ -37,13 +37,13 @@ public:
         if (right) angle -= rotation_vel;
     }
 
-    void move_forward() {
-        vel = std::min(vel + acceleration, max_vel);
+    void move_backward() {
+        vel = std::min(vel + acceleration, max_vel / 2.0);
         update_position();
     }
 
-    void move_backward() {
-        vel = std::max(vel - acceleration, -max_vel / 2.0);
+    void move_forward() {
+        vel = std::max(vel - acceleration, -max_vel);
         update_position();
     }
 
@@ -100,7 +100,7 @@ int main(int argc, char* argv[]) {
     SDL_FreeSurface(car_surface);
 
     // Auto erstellen
-    Car car(car_texture, Vec2(390.0, 433.0), 3.0, 4.0);
+    Car car(car_texture, Vec2(580.0, 785.0), 3.0, 4.0);
 
     // Hauptloop
     bool quit = false;
@@ -137,11 +137,11 @@ int main(int argc, char* argv[]) {
         if (currentKeyStates[SDL_SCANCODE_D]) {
             car.rotate(false, true);
         }
-        if (currentKeyStates[SDL_SCANCODE_S]) {
+        if (currentKeyStates[SDL_SCANCODE_W]) {
             car.move_forward();
             moving = true;
         }
-        if (currentKeyStates[SDL_SCANCODE_W]) {
+        if (currentKeyStates[SDL_SCANCODE_S]) {
             car.move_backward();
             moving = true;
         }
