@@ -48,7 +48,7 @@ public:
     }
 
     void update_position() {
-        double radians = angle * PI / 180.0;
+        double radians = angle * PI / -180.0;
         pos.x += vel * std::cos(radians);
         pos.y += vel * std::sin(radians);
     }
