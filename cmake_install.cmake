@@ -1,4 +1,4 @@
-# Install script for directory: /home/lama/Documents/IT/C++/CppSTK
+# Install script for directory: /home/marcel/Documents/IT/C++/CppSTK
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -57,6 +57,6 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-  file(WRITE "/home/lama/Documents/IT/C++/CppSTK/${CMAKE_INSTALL_MANIFEST}"
+  file(WRITE "/home/marcel/Documents/IT/C++/CppSTK/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
 endif()

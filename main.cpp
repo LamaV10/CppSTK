@@ -7,10 +7,10 @@
 #include <thread>
 
 // Konstanten
-//const int WIDTH = 1920;
-const int WIDTH = 1280;
-//const int HEIGHT = 1080;
-const int HEIGHT = 720;
+const int WIDTH = 1920;
+//const int WIDTH = 1280;
+const int HEIGHT = 1080;
+//const int HEIGHT = 720;
 const double PI = 3.14159265358979323846;
 
 // Vektor2D-Klasse
@@ -30,7 +30,7 @@ public:
     double max_vel;
     double rotation_vel;
     double acceleration;
-    double vel_scale;
+    float vel_scale;
 
     Car(SDL_Texture* texture, Vec2 pos, double max_vel, double rotation_vel)
         : texture(texture), pos(pos), vel(0), angle(0), max_vel(max_vel), rotation_vel(rotation_vel), acceleration(0.1) {}
@@ -104,71 +104,71 @@ int main(int argc, char* argv[]) {
     SDL_FreeSurface(car_surface);
 
 // Auto erstellen
-    //1920 x 1080
-    //Car car(car_texture, Vec2(580.0, 785.0), 3.0, 4.0);
-    //1280x720
-    Car car(car_texture, Vec2(345.0, 480.0), 3.0, 4.0);
+//1920 x 1080
+Car car(car_texture, Vec2(580.0, 785.0), 3.0, 4.0);
+//1280x720
+//Car car(car_texture, Vec2(345.0, 480.0), 3.0, 4.0);
 
-    // Hauptloop
-    bool quit = false;
-    SDL_Event e;
-    auto last_update = std::chrono::high_resolution_clock::now();
-    std::chrono::duration<double> frame_duration(1.0 / 60.0);
+// Hauptloop
+bool quit = false;
+SDL_Event e;
+auto last_update = std::chrono::high_resolution_clock::now();
+std::chrono::duration<double> frame_duration(1.0 / 60.0);
 
-    while (!quit) {
-        auto now = std::chrono::high_resolution_clock::now();
-        std::chrono::duration<double> delta_time = now - last_update;
-        if (delta_time < frame_duration) {
-            std::this_thread::sleep_for(frame_duration - delta_time);
-            continue;
-        }
-        last_update = now;
+  while (!quit) {
+      auto now = std::chrono::high_resolution_clock::now();
+      std::chrono::duration<double> delta_time = now - last_update;
+      if (delta_time < frame_duration) {
+          std::this_thread::sleep_for(frame_duration - delta_time);
+          continue;
+      }
+      last_update = now;
 
-        // Ereignisse verarbeiten
-        while (SDL_PollEvent(&e) != 0) {
-            if (e.type == SDL_QUIT) {
-                quit = true;
-            } else if (e.type == SDL_KEYDOWN) {
-                if (e.key.keysym.sym == SDLK_ESCAPE) {
-                    quit = true;
-                }
-            }
-        }
+      // Ereignisse verarbeiten
+      while (SDL_PollEvent(&e) != 0) {
+          if (e.type == SDL_QUIT) {
+              quit = true;
+          } else if (e.type == SDL_KEYDOWN) {
+               if (e.key.keysym.sym == SDLK_ESCAPE) {
+                   quit = true;
+              }
+          }
+      }
 
-        const Uint8* currentKeyStates = SDL_GetKeyboardState(nullptr);
-        bool moving = false;
+      const Uint8* currentKeyStates = SDL_GetKeyboardState(nullptr);
+      bool moving = false;
 
-        if (currentKeyStates[SDL_SCANCODE_A]) {
-            car.rotate(true, false);
-        }
-        if (currentKeyStates[SDL_SCANCODE_D]) {
+      if (currentKeyStates[SDL_SCANCODE_A]) {
+           car.rotate(true, false);
+      }
+      if (currentKeyStates[SDL_SCANCODE_D]) {
             car.rotate(false, true);
-        }
-        if (currentKeyStates[SDL_SCANCODE_W]) {
+      }
+      if (currentKeyStates[SDL_SCANCODE_W]) {
             car.move_forward();
             moving = true;
-        }
-        if (currentKeyStates[SDL_SCANCODE_S]) {
+      }
+      if (currentKeyStates[SDL_SCANCODE_S]) {
             car.move_backward();
             moving = true;
-        }
+      }
 
-        if (!moving) {
+      if (!moving) {
             car.vel *= 0.9;
             car.update_position();
-        }
+      }
 
-        // Bildschirm löschen
-        SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
-        SDL_RenderClear(renderer);
+      // Bildschirm löschen
+      SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+      SDL_RenderClear(renderer);
         
-        // Strecke und Auto zeichnen
-        SDL_RenderCopy(renderer, track_texture, nullptr, nullptr);
-        car.draw(renderer);
+      // Strecke und Auto zeichnen
+      SDL_RenderCopy(renderer, track_texture, nullptr, nullptr);
+      car.draw(renderer);
         
-        // Bildschirm aktualisieren
-        SDL_RenderPresent(renderer);
-    }
+      // Bildschirm aktualisieren
+      SDL_RenderPresent(renderer);
+  }
 
     // Ressourcen freigeben
     SDL_DestroyTexture(car_texture);
