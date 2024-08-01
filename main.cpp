@@ -5,19 +5,24 @@
 #include <cmath>
 #include <chrono>
 #include <thread>
-#include <string>
 
 // Konstanten
-const int WIDTH = 1920;
+//const int WIDTH = 1920;
 //const int WIDTH(void)
-//{
-//    int user_input;
-//    scanf("%d", &user_input);
-//    return user_input;
+
+ // int user_input;
+ // scanf("%d", &user_input);
+  //return user_input;
 //}
+
 //const int WIDTH = 1280;
-const int HEIGHT = 1080;
+//const int HEIGHT = 1080;
 //const int HEIGHT = 720;
+
+int WIDTH;
+int HEIGHT;
+
+
 const double PI = 3.14159265358979323846;
 
 // Vektor2D-Klasse
@@ -99,6 +104,13 @@ int main(int argc, char* argv[]) {
     if (!renderer) {
         std::cerr << "Renderer konnte nicht erstellt werden! SDL Error: " << SDL_GetError() << std::endl;
         return -1;
+
+    // Benutzer zur Eingabe der Fenstergröße aufforder
+    std::cout << "Geben Sie die gewünschte Breite des Fensters ein: ";
+    std::cin >> WIDTH;
+    std::cout << "Geben Sie die gewünschte Höhe des Fensters ein: ";
+    std::cin >> HEIGHT;
+
     }
 
     // Bilder laden
