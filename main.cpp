@@ -22,7 +22,7 @@
 int WIDTH;
 int HEIGHT;
 
-bool fhd = false;
+int fhd = false;
 
 const double PI = 3.14159265358979323846;
 
@@ -88,9 +88,9 @@ int main(int argc, char* argv[]) {
     std::cout.flush();
     std::cin >> HEIGHT;
 
-    //std::cout << "Is it 1920x1080 (true or false): ";
-    //std::cout.flush();
-    //std::cin >> fhd;
+    std::cout << "Is it 1920x1080 (true or false): ";
+    std::cout.flush();
+    std::cin >> fhd;
     
     // SDL2 und SDL_image initialisieren
     if (SDL_Init(SDL_INIT_VIDEO) < 0) {
@@ -131,15 +131,17 @@ int main(int argc, char* argv[]) {
 
 
 // Auto erstellen
-//if (fhd = true){
-//1920 x 1080
+if (fhd){
+  //192x1080
   Car car(car_texture, Vec2(580.0, 785.0), 3.0, 4.0);
-//};
+}
 
-//if (fhd = false) {
+else{
   //1280x720
-  //Car car(car_texture, Vec2(345.0, 480.0), 3.0, 4.0);
-//};
+  Car car(car_texture, Vec2(345.0, 480.0), 3.0, 4.0);
+}
+
+std::cout <<fhd;
 
 // Hauptloop
 bool quit = false;
