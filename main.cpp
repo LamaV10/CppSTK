@@ -7,8 +7,10 @@
 #include <thread>
 
 // Konstanten
-const int WIDTH = 1920;
-const int HEIGHT = 1080;
+//const int WIDTH = 1920;
+const int WIDTH = 1280;
+//const int HEIGHT = 1080;
+const int HEIGHT = 720;
 const double PI = 3.14159265358979323846;
 
 // Vektor2D-Klasse
@@ -101,8 +103,11 @@ int main(int argc, char* argv[]) {
     SDL_Texture* car_texture = SDL_CreateTextureFromSurface(renderer, car_surface);
     SDL_FreeSurface(car_surface);
 
-    // Auto erstellen
-    Car car(car_texture, Vec2(580.0, 785.0), 3.0, 4.0);
+// Auto erstellen
+    //1920 x 1080
+    //Car car(car_texture, Vec2(580.0, 785.0), 3.0, 4.0);
+    //1280x720
+    Car car(car_texture, Vec2(345.0, 480.0), 3.0, 4.0);
 
     // Hauptloop
     bool quit = false;
