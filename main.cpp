@@ -6,25 +6,14 @@
 #include <chrono>
 #include <thread>
 
-// Konstanten
-//const int WIDTH = 1920;
-//const int WIDTH(void)
-
- // int user_input;
- // scanf("%d", &user_input);
-  //return user_input;
-//}
-
-//const int WIDTH = 1280;
-//const int HEIGHT = 1080;
-//const int HEIGHT = 720;
-
 int WIDTH;
 int HEIGHT;
 
 int fhd = false;
 
 const double PI = 3.14159265358979323846;
+
+
 
 // Vektor2D-Klasse
 class Vec2 {
@@ -129,17 +118,17 @@ int main(int argc, char* argv[]) {
     SDL_Texture* car_texture = SDL_CreateTextureFromSurface(renderer, car_surface);
     SDL_FreeSurface(car_surface);
 
+    // Auto erstellen
+    if (fhd == true){
+      //192x1080
+      Car car(car_texture, Vec2(580.0, 785.0), 3.0, 4.0);
+    }
 
-// Auto erstellen
-if (fhd){
-  //192x1080
-  Car car(car_texture, Vec2(580.0, 785.0), 3.0, 4.0);
-}
+    else {
+      //1280x720
+      Car car(car_texture, Vec2(345.0, 480.0), 3.0, 4.0);
+    }
 
-else{
-  //1280x720
-  Car car(car_texture, Vec2(345.0, 480.0), 3.0, 4.0);
-}
 
 std::cout <<fhd;
 
