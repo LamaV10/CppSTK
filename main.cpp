@@ -22,6 +22,7 @@
 int WIDTH;
 int HEIGHT;
 
+bool fhd = false;
 
 const double PI = 3.14159265358979323846;
 
@@ -31,6 +32,7 @@ public:
     double x, y;
     Vec2(double x = 0, double y = 0) : x(x), y(y) {}
 };
+
 
 // Auto-Klasse
 class Car {
@@ -78,6 +80,18 @@ public:
 };
 
 int main(int argc, char* argv[]) {
+    // Benutzer zur Eingabe der Fenstergröße aufforder
+    std::cout << "Please enter your desired screen width: ";
+    std::cout.flush();
+    std::cin >> WIDTH;
+    std::cout << "Please enter your desired screen height: ";
+    std::cout.flush();
+    std::cin >> HEIGHT;
+
+    //std::cout << "Is it 1920x1080 (true or false): ";
+    //std::cout.flush();
+    //std::cin >> fhd;
+    
     // SDL2 und SDL_image initialisieren
     if (SDL_Init(SDL_INIT_VIDEO) < 0) {
         std::cerr << "SDL konnte nicht initialisiert werden! SDL_Error: " << SDL_GetError() << std::endl;
@@ -104,13 +118,6 @@ int main(int argc, char* argv[]) {
     if (!renderer) {
         std::cerr << "Renderer konnte nicht erstellt werden! SDL Error: " << SDL_GetError() << std::endl;
         return -1;
-
-    // Benutzer zur Eingabe der Fenstergröße aufforder
-    std::cout << "Geben Sie die gewünschte Breite des Fensters ein: ";
-    std::cin >> WIDTH;
-    std::cout << "Geben Sie die gewünschte Höhe des Fensters ein: ";
-    std::cin >> HEIGHT;
-
     }
 
     // Bilder laden
@@ -122,11 +129,17 @@ int main(int argc, char* argv[]) {
     SDL_Texture* car_texture = SDL_CreateTextureFromSurface(renderer, car_surface);
     SDL_FreeSurface(car_surface);
 
+
 // Auto erstellen
+//if (fhd = true){
 //1920 x 1080
-Car car(car_texture, Vec2(580.0, 785.0), 3.0, 4.0);
-//1280x720
-//Car car(car_texture, Vec2(345.0, 480.0), 3.0, 4.0);
+  Car car(car_texture, Vec2(580.0, 785.0), 3.0, 4.0);
+//};
+
+//if (fhd = false) {
+  //1280x720
+  //Car car(car_texture, Vec2(345.0, 480.0), 3.0, 4.0);
+//};
 
 // Hauptloop
 bool quit = false;
