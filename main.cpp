@@ -5,9 +5,16 @@
 #include <cmath>
 #include <chrono>
 #include <thread>
+#include <string>
 
 // Konstanten
 const int WIDTH = 1920;
+//const int WIDTH(void)
+//{
+//    int user_input;
+//    scanf("%d", &user_input);
+//    return user_input;
+//}
 //const int WIDTH = 1280;
 const int HEIGHT = 1080;
 //const int HEIGHT = 720;
