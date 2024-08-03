@@ -5,6 +5,8 @@
 #include <cmath>
 #include <chrono>
 #include <thread>
+#include <print>
+#include <cstdio>
 
 int WIDTH;
 int HEIGHT;
@@ -69,17 +71,35 @@ public:
 
 int main(int argc, char* argv[]) {
     // Benutzer zur Eingabe der Fenstergröße aufforder
-    std::cout << "Please enter your desired screen width: ";
-    std::cout.flush();
-    std::cin >> WIDTH;
-    std::cout << "Please enter your desired screen height: ";
-    std::cout.flush();
-    std::cin >> HEIGHT;
-
-    std::cout << "Resolution: 1920x1080 (1) 1280x720 (2)";
+    std::cout << "Resolution: 2560x1440 (1) 1920x1080 (2) 1600x900 (3) 1280x720 (4): ";
     std::cout.flush();
     std::cin >> resolution;
+    std::cout << resolution; 
+
+    //Resolution options
+    if (resolution == 1) {
+      WIDTH = 2560;
+      HEIGHT = 1440;
+    }
     
+    if (resolution == 2) {
+      WIDTH = 1920;
+      HEIGHT = 1080;
+    }
+
+    if (resolution == 3) {
+      WIDTH = 1600;
+      HEIGHT = 900;
+    }
+    
+    if (resolution == 4) {
+      WIDTH = 1280;
+      HEIGHT = 720;
+    }
+    
+    std::cout << WIDTH; 
+    std::cout << HEIGHT; 
+
     // SDL2 und SDL_image initialisieren
     if (SDL_Init(SDL_INIT_VIDEO) < 0) {
         std::cerr << "SDL konnte nicht initialisiert werden! SDL_Error: " << SDL_GetError() << std::endl;
@@ -117,17 +137,29 @@ int main(int argc, char* argv[]) {
     SDL_Texture* car_texture = SDL_CreateTextureFromSurface(renderer, car_surface);
     SDL_FreeSurface(car_surface);
 
+
     Car car(car_texture, Vec2(580.0, 785.0), 3.0, 4.0);
     // Auto erstellen
+    //WQHD 2560x1440
     if (resolution == 1){
-      //192x1080
-      car.pos.x = 580.0;
-      car.pos.y = 785.0;
-    
+      car.pos.x = 820.0;
+      car.pos.y = 1085.0; 
     }
 
-    else {
-      //1280x720
+    //FHD 192x1080
+    if (resolution == 2){
+      car.pos.x = 580.0;
+      car.pos.y = 785.0; 
+    }
+
+    //1600x900
+    if (resolution == 3){
+      car.pos.x = 455.0;
+      car.pos.y = 635.0;
+    }
+    
+    //HD 1280x720
+    if (resolution == 4){
       car.pos.x = 345.0;
       car.pos.y = 480.0;
     }
