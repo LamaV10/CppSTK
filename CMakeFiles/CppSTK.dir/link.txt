@@ -1,1 +1,1 @@
-/usr/bin/c++ CMakeFiles/CppSTK.dir/main.cpp.o -o CppSTK  /usr/lib/libSDL2main.a /usr/lib/libSDL2-2.0.so.0.3000.5 -lSDL2_image -lSDL2_ttf
+/usr/bin/c++ CMakeFiles/CppSTK.dir/main.cpp.o -o CppSTK  /usr/lib/libSDL2main.a /usr/lib/libSDL2-2.0.so.0.3000.6 -lSDL2_image -lSDL2_ttf

@@ -8,8 +8,7 @@
 
 int WIDTH;
 int HEIGHT;
-
-int fhd = false;
+int resolution = 0;
 
 const double PI = 3.14159265358979323846;
 
@@ -77,9 +76,9 @@ int main(int argc, char* argv[]) {
     std::cout.flush();
     std::cin >> HEIGHT;
 
-    std::cout << "Is it 1920x1080 (true or false): ";
+    std::cout << "Resolution: 1920x1080 (1) 1280x720 (2)";
     std::cout.flush();
-    std::cin >> fhd;
+    std::cin >> resolution;
     
     // SDL2 und SDL_image initialisieren
     if (SDL_Init(SDL_INIT_VIDEO) < 0) {
@@ -118,19 +117,22 @@ int main(int argc, char* argv[]) {
     SDL_Texture* car_texture = SDL_CreateTextureFromSurface(renderer, car_surface);
     SDL_FreeSurface(car_surface);
 
+    Car car(car_texture, Vec2(580.0, 785.0), 3.0, 4.0);
     // Auto erstellen
-    if (fhd == true){
+    if (resolution == 1){
       //192x1080
-      Car car(car_texture, Vec2(580.0, 785.0), 3.0, 4.0);
+      car.pos.x = 580.0;
+      car.pos.y = 785.0;
+    
     }
 
     else {
       //1280x720
-      Car car(car_texture, Vec2(345.0, 480.0), 3.0, 4.0);
+      car.pos.x = 345.0;
+      car.pos.y = 480.0;
     }
 
 
-std::cout <<fhd;
 
 // Hauptloop
 bool quit = false;
