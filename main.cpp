@@ -35,7 +35,7 @@ public:
     double rotation_vel;
     double acceleration;
     float vel_scale;
-
+ 
     Car(SDL_Texture* texture, Vec2 pos, double max_vel, double rotation_vel)
         : texture(texture), pos(pos), vel(0), angle(0), max_vel(max_vel), rotation_vel(rotation_vel), acceleration(0.1) {}
 
@@ -138,30 +138,39 @@ int main(int argc, char* argv[]) {
     SDL_FreeSurface(car_surface);
 
 
-    Car car(car_texture, Vec2(580.0, 785.0), 3.0, 4.0);
+    Car car1(car_texture, Vec2(580.0, 785.0), 3.0, 4.0);
+    Car car2(car_texture, Vec2(580.0, 785.0), 3.0, 4.0);
     // Auto erstellen
     //WQHD 2560x1440
     if (resolution == 1){
-      car.pos.x = 820.0;
-      car.pos.y = 1085.0; 
+      car1.pos.x = 820.0;
+      car2.pos.x = 820.0;
+      car1.pos.y = 1085.0; 
+      car2.pos.y = 1085.0; 
     }
 
     //FHD 192x1080
     if (resolution == 2){
-      car.pos.x = 580.0;
-      car.pos.y = 785.0; 
+      car1.pos.x = 580.0;
+      car2.pos.x = 580.0;
+      car1.pos.y = 785.0; 
+      car2.pos.y = 785.0; 
     }
 
     //1600x900
     if (resolution == 3){
-      car.pos.x = 455.0;
-      car.pos.y = 635.0;
+      car1.pos.x = 455.0;
+      car2.pos.x = 455.0;
+      car1.pos.y = 635.0;
+      car2.pos.y = 635.0;
     }
     
     //HD 1280x720
     if (resolution == 4){
-      car.pos.x = 345.0;
-      car.pos.y = 480.0;
+      car1.pos.x = 345.0;
+      car2.pos.x = 345.0;
+      car1.pos.y = 480.0;
+      car2.pos.y = 480.0;
     }
 
 
@@ -193,36 +202,61 @@ std::chrono::duration<double> frame_duration(1.0 / 60.0);
       }
 
       const Uint8* currentKeyStates = SDL_GetKeyboardState(nullptr);
-      bool moving = false;
+      bool moving1 = false;
+      bool moving2 = false;
 
+      //player1
       if (currentKeyStates[SDL_SCANCODE_A]) {
-           car.rotate(true, false);
+           car1.rotate(true, false);
       }
       if (currentKeyStates[SDL_SCANCODE_D]) {
-            car.rotate(false, true);
+            car1.rotate(false, true);
       }
       if (currentKeyStates[SDL_SCANCODE_W]) {
-            car.move_forward();
-            moving = true;
+            car1.move_forward();
+            moving1 = true;
       }
       if (currentKeyStates[SDL_SCANCODE_S]) {
-            car.move_backward();
-            moving = true;
+            car1.move_backward();
+            moving1 = true;
       }
 
-      if (!moving) {
-            car.vel *= 0.9;
-            car.update_position();
+      if (!moving1) {
+            car1.vel *= 0.9;
+            car1.update_position();
       }
 
+
+      //player 2
+      if (currentKeyStates[SDL_SCANCODE_A]) {
+           car2.rotate(true, false);
+      }
+      if (currentKeyStates[SDL_SCANCODE_D]) {
+            car2.rotate(false, true);
+      }
+      if (currentKeyStates[SDL_SCANCODE_W]) {
+            car2.move_forward();
+            moving2 = true;
+      }
+      if (currentKeyStates[SDL_SCANCODE_S]) {
+            car2.move_backward();
+            moving2 = true;
+      }
+
+      if (!moving2) {
+            car2.vel *= 0.9;
+            car2.update_position();
+      }
       // Bildschirm löschen
       SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
       SDL_RenderClear(renderer);
         
       // Strecke und Auto zeichnen
       SDL_RenderCopy(renderer, track_texture, nullptr, nullptr);
-      car.draw(renderer);
+      car1.draw(renderer);
         
+      SDL_RenderCopy(renderer, track_texture, nullptr, nullptr);
+      car2.draw(renderer);
       // Bildschirm aktualisieren
       SDL_RenderPresent(renderer);
   }
