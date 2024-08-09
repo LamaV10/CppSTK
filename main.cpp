@@ -133,44 +133,50 @@ int main(int argc, char* argv[]) {
     SDL_Texture* track_texture = SDL_CreateTextureFromSurface(renderer, track_surface);
     SDL_FreeSurface(track_surface);
 
-    SDL_Surface* car_surface = IMG_Load("imgs/tuxi.xcf");
-    SDL_Texture* car_texture = SDL_CreateTextureFromSurface(renderer, car_surface);
-    SDL_FreeSurface(car_surface);
+    //Car No.1
+    SDL_Surface* car1_surface = IMG_Load("imgs/tuxi.xcf");
+    SDL_Texture* car1_texture = SDL_CreateTextureFromSurface(renderer, car1_surface);
+    SDL_FreeSurface(car1_surface);
 
+    //Car No.2
+    SDL_Surface* car2_surface = IMG_Load("imgs/yoshi.xcf");
+    SDL_Texture* car2_texture = SDL_CreateTextureFromSurface(renderer, car2_surface);
+    SDL_FreeSurface(car2_surface);
 
-    Car car1(car_texture, Vec2(580.0, 785.0), 3.0, 4.0);
-    Car car2(car_texture, Vec2(580.0, 785.0), 3.0, 4.0);
+    Car car1(car1_texture, Vec2(580.0, 785.0), 3.0, 4.0);
+    Car car2(car2_texture, Vec2(680.0, 885.0), 3.0, 4.0);
+
     // Auto erstellen
     //WQHD 2560x1440
     if (resolution == 1){
       car1.pos.x = 820.0;
-      car2.pos.x = 820.0;
+      car2.pos.x = 920.0;
       car1.pos.y = 1085.0; 
-      car2.pos.y = 1085.0; 
+      car2.pos.y = 1185.0; 
     }
 
     //FHD 192x1080
     if (resolution == 2){
       car1.pos.x = 580.0;
-      car2.pos.x = 580.0;
+      car2.pos.x = 680.0;
       car1.pos.y = 785.0; 
-      car2.pos.y = 785.0; 
+      car2.pos.y = 885.0; 
     }
 
     //1600x900
     if (resolution == 3){
       car1.pos.x = 455.0;
-      car2.pos.x = 455.0;
+      car2.pos.x = 555.0;
       car1.pos.y = 635.0;
-      car2.pos.y = 635.0;
+      car2.pos.y = 735.0;
     }
     
     //HD 1280x720
     if (resolution == 4){
       car1.pos.x = 345.0;
-      car2.pos.x = 345.0;
+      car2.pos.x = 445.0;
       car1.pos.y = 480.0;
-      car2.pos.y = 480.0;
+      car2.pos.y = 580.0;
     }
 
 
@@ -228,17 +234,17 @@ std::chrono::duration<double> frame_duration(1.0 / 60.0);
 
 
       //player 2
-      if (currentKeyStates[SDL_SCANCODE_A]) {
+      if (currentKeyStates[SDL_SCANCODE_J]) {
            car2.rotate(true, false);
       }
-      if (currentKeyStates[SDL_SCANCODE_D]) {
+      if (currentKeyStates[SDL_SCANCODE_L]) {
             car2.rotate(false, true);
       }
-      if (currentKeyStates[SDL_SCANCODE_W]) {
+      if (currentKeyStates[SDL_SCANCODE_I]) {
             car2.move_forward();
             moving2 = true;
       }
-      if (currentKeyStates[SDL_SCANCODE_S]) {
+      if (currentKeyStates[SDL_SCANCODE_K]) {
             car2.move_backward();
             moving2 = true;
       }
@@ -262,7 +268,9 @@ std::chrono::duration<double> frame_duration(1.0 / 60.0);
   }
 
     // Ressourcen freigeben
-    SDL_DestroyTexture(car_texture);
+    SDL_DestroyTexture(car1_texture);
+    SDL_DestroyTexture(car2_texture);
+    
     SDL_DestroyTexture(track_texture);
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(window);
