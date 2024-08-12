@@ -150,9 +150,9 @@ int main(int argc, char* argv[]) {
     //WQHD 2560x1440
     if (resolution == 1){
       car1.pos.x = 820.0;
-      car2.pos.x = 920.0;
+      car2.pos.x = 810.0;
       car1.pos.y = 1085.0; 
-      car2.pos.y = 1185.0; 
+      car2.pos.y = 1335.0; 
     }
 
     //FHD 192x1080
@@ -260,8 +260,6 @@ std::chrono::duration<double> frame_duration(1.0 / 60.0);
       // Strecke und Auto zeichnen
       SDL_RenderCopy(renderer, track_texture, nullptr, nullptr);
       car1.draw(renderer);
-        
-      SDL_RenderCopy(renderer, track_texture, nullptr, nullptr);
       car2.draw(renderer);
       // Bildschirm aktualisieren
       SDL_RenderPresent(renderer);
