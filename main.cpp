@@ -158,25 +158,25 @@ int main(int argc, char* argv[]) {
     //FHD 192x1080
     if (resolution == 2){
       car1.pos.x = 580.0;
-      car2.pos.x = 680.0;
+      car2.pos.x = 605.0;
       car1.pos.y = 785.0; 
-      car2.pos.y = 885.0; 
+      car2.pos.y = 995.0; 
     }
 
     //1600x900
     if (resolution == 3){
       car1.pos.x = 455.0;
-      car2.pos.x = 555.0;
+      car2.pos.x = 495.0;
       car1.pos.y = 635.0;
-      car2.pos.y = 735.0;
+      car2.pos.y = 825.0;
     }
     
     //HD 1280x720
     if (resolution == 4){
       car1.pos.x = 345.0;
-      car2.pos.x = 445.0;
+      car2.pos.x = 410.0;
       car1.pos.y = 480.0;
-      car2.pos.y = 580.0;
+      car2.pos.y = 655.0;
     }
 
 
