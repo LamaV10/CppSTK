@@ -50,7 +50,11 @@ public:
     }
 
     void move_forward() {
-        vel_scale = 2;
+        if (resolution == 1) vel_scale = 3;
+        if (resolution == 2) vel_scale = 2.5;
+        if (resolution == 3) vel_scale = 2;
+        if (resolution == 4) vel_scale = 1.5;
+
         vel = std::max(vel - acceleration * vel_scale, -max_vel * vel_scale);
         update_position();
     }
