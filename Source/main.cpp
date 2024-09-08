@@ -73,6 +73,8 @@ public:
     }
 };
 
+
+
 int main(int argc, char* argv[]) {
     // Benutzer zur Eingabe der Fenstergröße aufforder
     std::cout << "Resolution: 2560x1440 (1) 1920x1080 (2) 1600x900 (3) 1280x720 (4): ";
@@ -184,7 +186,6 @@ int main(int argc, char* argv[]) {
     }
 
 
-
 // Hauptloop
 bool quit = false;
 SDL_Event e;
@@ -257,6 +258,7 @@ std::chrono::duration<double> frame_duration(1.0 / 60.0);
             car2.vel *= 0.9;
             car2.update_position();
       }
+
       // Bildschirm löschen
       SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
       SDL_RenderClear(renderer);
