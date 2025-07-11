@@ -14,8 +14,6 @@ int resolution = 0;
 
 const double PI = 3.14159265358979323846;
 
-
-
 // Vektor2D-Klasse
 class Vec2 {
 public:
@@ -153,36 +151,35 @@ int main(int argc, char* argv[]) {
     Car car2(car2_texture, Vec2(680.0, 885.0), 3.0, 4.0);
 
     // Auto erstellen
-    //WQHD 2560x1440
-    if (resolution == 1){
-      car1.pos.x = 820.0;
-      car2.pos.x = 810.0;
-      car1.pos.y = 1085.0; 
-      car2.pos.y = 1335.0; 
-    }
-
-    //FHD 192x1080
-    if (resolution == 2){
-      car1.pos.x = 580.0;
-      car2.pos.x = 605.0;
-      car1.pos.y = 785.0; 
-      car2.pos.y = 995.0; 
-    }
-
-    //1600x900
-    if (resolution == 3){
-      car1.pos.x = 455.0;
-      car2.pos.x = 495.0;
-      car1.pos.y = 635.0;
-      car2.pos.y = 825.0;
-    }
-    
-    //HD 1280x720
-    if (resolution == 4){
-      car1.pos.x = 345.0;
-      car2.pos.x = 410.0;
-      car1.pos.y = 480.0;
-      car2.pos.y = 655.0;
+    switch (resolution) {
+	case 1: 
+	    //WQHD 2560x1440
+	    car1.pos.x = 820.0;
+	    car2.pos.x = 810.0;
+	    car1.pos.y = 1085.0; 
+	    car2.pos.y = 1335.0; 
+	    break;
+	case 2:
+	    //FHD 192x1080
+	    car1.pos.x = 580.0;
+	    car2.pos.x = 605.0;
+	    car1.pos.y = 785.0; 
+	    car2.pos.y = 995.0; 
+	    break;
+	case 3:
+	    //1600x900
+	    car1.pos.x = 455.0;
+	    car2.pos.x = 495.0;
+	    car1.pos.y = 635.0;
+	    car2.pos.y = 825.0;
+	    break;
+	case 4:
+	    //HD 1280x720
+	    car1.pos.x = 345.0;
+	    car2.pos.x = 410.0;
+	    car1.pos.y = 480.0;
+	    car2.pos.y = 655.0;
+	    break;
     }
 
 
