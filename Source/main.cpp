@@ -48,10 +48,10 @@ public:
     }
 
     void move_forward() {
-        if (resolution == 1) vel_scale = 3;
-        if (resolution == 2) vel_scale = 2.5;
-        if (resolution == 3) vel_scale = 2;
-        if (resolution == 4) vel_scale = 1.5;
+        // if (resolution == 1) vel_scale = 3;
+        // if (resolution == 2) vel_scale = 2.5;
+        // if (resolution == 3) vel_scale = 2;
+        // if (resolution == 4) vel_scale = 1.5;
 
         vel = std::max(vel - acceleration * vel_scale, -max_vel * vel_scale);
         update_position();
@@ -81,24 +81,23 @@ int main(int argc, char* argv[]) {
     std::cout << resolution; 
 
     //Resolution options
-    if (resolution == 1) {
-      WIDTH = 2560;
-      HEIGHT = 1440;
-    }
-    
-    if (resolution == 2) {
-      WIDTH = 1920;
-      HEIGHT = 1080;
-    }
-
-    if (resolution == 3) {
-      WIDTH = 1600;
-      HEIGHT = 900;
-    }
-    
-    if (resolution == 4) {
-      WIDTH = 1280;
-      HEIGHT = 720;
+    switch (resolution) {
+	case 1:
+	  WIDTH = 2560;
+	  HEIGHT = 1440;
+	  break;
+	case 2:
+	  WIDTH = 1920;
+	  HEIGHT = 1080;
+	  break;
+	case 3:
+	  WIDTH = 1600;
+	  HEIGHT = 900;
+	  break;
+	case 4: 
+	  WIDTH = 1280;
+	  HEIGHT = 720;
+	  break;
     }
     
     std::cout << WIDTH; 
