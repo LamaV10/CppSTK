@@ -106,23 +106,23 @@ int main(int argc, char* argv[]) {
     std::cout << WIDTH; 
     std::cout << HEIGHT; 
 
-    // Fenster erstellen
+    // create window 
     SDL_Window* window = SDL_CreateWindow("SuperTuxKart", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WIDTH, HEIGHT, SDL_WINDOW_SHOWN);
 
-    // Renderer erstellen
+    // create render
     SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 
-    // Bilder laden
+    // load pictures 
     SDL_Surface* track_surface = IMG_Load("imgs/rennstrecke.jpg");
     SDL_Texture* track_texture = SDL_CreateTextureFromSurface(renderer, track_surface);
     SDL_FreeSurface(track_surface);
 
-    //Car No.1
+    // car No.1
     SDL_Surface* car1_surface = IMG_Load("imgs/tuxi.xcf");
     SDL_Texture* car1_texture = SDL_CreateTextureFromSurface(renderer, car1_surface);
     SDL_FreeSurface(car1_surface);
 
-    //Car No.2
+    // car No.2
     SDL_Surface* car2_surface = IMG_Load("imgs/yoshi.xcf");
     SDL_Texture* car2_texture = SDL_CreateTextureFromSurface(renderer, car2_surface);
     SDL_FreeSurface(car2_surface);
@@ -130,7 +130,7 @@ int main(int argc, char* argv[]) {
     Car car1(car1_texture, Vec2(580.0, 785.0), 3.0, 4.0);
     Car car2(car2_texture, Vec2(680.0, 885.0), 3.0, 4.0);
 
-    // Auto erstellen
+    // create car pos for different resolutions
     switch (resolution) {
 	case 1: 
 	    //WQHD 2560x1440
@@ -163,7 +163,7 @@ int main(int argc, char* argv[]) {
     }
 
 
-// Hauptloop
+// main loop
 bool quit = false;
 SDL_Event e;
 auto last_update = std::chrono::high_resolution_clock::now();
@@ -178,7 +178,7 @@ std::chrono::duration<double> frame_duration(1.0 / 60.0);
       }
       last_update = now;
 
-      // Ereignisse verarbeiten
+      // handle actions 
       while (SDL_PollEvent(&e) != 0) {
           if (e.type == SDL_QUIT) {
               quit = true;
@@ -193,7 +193,7 @@ std::chrono::duration<double> frame_duration(1.0 / 60.0);
       bool moving1 = false;
       bool moving2 = false;
 
-      //player1
+      // player1
       if (currentKeyStates[SDL_SCANCODE_A]) {
            car1.rotate(true, false);
       }
@@ -215,7 +215,7 @@ std::chrono::duration<double> frame_duration(1.0 / 60.0);
       }
 
 
-      //player 2
+      // player 2
       if (currentKeyStates[SDL_SCANCODE_J]) {
            car2.rotate(true, false);
       }
@@ -236,19 +236,19 @@ std::chrono::duration<double> frame_duration(1.0 / 60.0);
             car2.update_position();
       }
 
-      // Bildschirm löschen
+      // clear screen 
       SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
       SDL_RenderClear(renderer);
         
-      // Strecke und Auto zeichnen
+      // draw track and car 
       SDL_RenderCopy(renderer, track_texture, nullptr, nullptr);
       car1.draw(renderer);
       car2.draw(renderer);
-      // Bildschirm aktualisieren
+      // refresh screen 
       SDL_RenderPresent(renderer);
   }
 
-    // Ressourcen freigeben
+    // free resoureces 
     SDL_DestroyTexture(car1_texture);
     SDL_DestroyTexture(car2_texture);
     
@@ -256,7 +256,7 @@ std::chrono::duration<double> frame_duration(1.0 / 60.0);
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(window);
 
-    // SDL und zugehörige Bibliotheken beenden
+    // quit libraries
     IMG_Quit();
     TTF_Quit();
     SDL_Quit();
