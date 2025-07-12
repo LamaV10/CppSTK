@@ -1,2 +1,5 @@
 .ccls-cache
 Source/CMakeFiles
+Source/CMakeCache.txt
+Source/cmake_install.cmake
+Source/Makefile
