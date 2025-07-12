@@ -106,33 +106,11 @@ int main(int argc, char* argv[]) {
     std::cout << WIDTH; 
     std::cout << HEIGHT; 
 
-    // SDL2 und SDL_image initialisieren
-    if (SDL_Init(SDL_INIT_VIDEO) < 0) {
-        std::cerr << "SDL konnte nicht initialisiert werden! SDL_Error: " << SDL_GetError() << std::endl;
-        return -1;
-    }
-    if (!(IMG_Init(IMG_INIT_PNG) & IMG_INIT_PNG)) {
-        std::cerr << "SDL_image konnte nicht initialisiert werden! SDL_image Error: " << IMG_GetError() << std::endl;
-        return -1;
-    }
-    if (TTF_Init() == -1) {
-        std::cerr << "SDL_ttf konnte nicht initialisiert werden! SDL_ttf Error: " << TTF_GetError() << std::endl;
-        return -1;
-    }
-
     // Fenster erstellen
     SDL_Window* window = SDL_CreateWindow("SuperTuxKart", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WIDTH, HEIGHT, SDL_WINDOW_SHOWN);
-    if (!window) {
-        std::cerr << "Fenster konnte nicht erstellt werden! SDL_Error: " << SDL_GetError() << std::endl;
-        return -1;
-    }
 
     // Renderer erstellen
     SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
-    if (!renderer) {
-        std::cerr << "Renderer konnte nicht erstellt werden! SDL Error: " << SDL_GetError() << std::endl;
-        return -1;
-    }
 
     // Bilder laden
     SDL_Surface* track_surface = IMG_Load("imgs/rennstrecke.jpg");

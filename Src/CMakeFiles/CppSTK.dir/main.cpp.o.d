@@ -1,5 +1,5 @@
 CMakeFiles/CppSTK.dir/main.cpp.o: \
- /home/marcel/Documents/IT/C++/CppSTK/Source/main.cpp \
+ /home/marcel/Documents/IT/C++/CppSTK/Src/main.cpp \
  /usr/include/stdc-predef.h /usr/include/SDL2/SDL.h \
  /usr/include/SDL2/SDL_main.h /usr/include/SDL2/SDL_stdinc.h \
  /usr/include/SDL2/SDL_config.h /usr/include/SDL2/SDL_platform.h \
