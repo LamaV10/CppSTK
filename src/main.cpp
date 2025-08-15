@@ -14,7 +14,7 @@ int resolution = 0;
 
 const double PI = 3.14159265358979323846;
 
-// Vektor2D-Klasse
+// Vektor2D-class
 class Vec2 {
 public:
     double x, y;
@@ -22,7 +22,7 @@ public:
 };
 
 
-// Auto-Klasse
+// car-class
 class Car {
 public:
     SDL_Texture* texture;
@@ -77,7 +77,7 @@ public:
 
 
 int main(int argc, char* argv[]) {
-    // Benutzer zur Eingabe der Fenstergröße aufforder
+    // user input for the resolution
     std::cout << "Resolution: 2560x1440 (1) 1920x1080 (2) 1600x900 (3) 1280x720 (4): ";
     std::cout.flush();
     std::cin >> resolution;

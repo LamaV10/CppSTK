@@ -1,7 +1,7 @@
 {
 	"InstallScripts" : 
 	[
-		"/home/marcel/Documents/IT/C++/CppSTK/Src/cmake_install.cmake"
+		"/home/lama/Documents/IT/C++/CppSTK/src/cmake_install.cmake"
 	],
 	"Parallel" : false
 }
