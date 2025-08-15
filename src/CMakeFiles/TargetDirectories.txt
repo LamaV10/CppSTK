@@ -1,3 +1,0 @@
-/home/lama/Documents/IT/C++/CppSTK/src/CMakeFiles/CppSTK.dir
-/home/lama/Documents/IT/C++/CppSTK/src/CMakeFiles/edit_cache.dir
-/home/lama/Documents/IT/C++/CppSTK/src/CMakeFiles/rebuild_cache.dir
