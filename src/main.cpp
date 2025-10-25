@@ -78,8 +78,8 @@ public:
 
 int main(int argc, char* argv[]) {
     // user input for the resolution
-    std::cout << "Resolution: \n 1: 2560x1440 \n 2: 1920x1080 \n 3: 1600x900 \n
-	4: 1280x720 \n => ";
+    std::cout << "Resolution: \n 1: 2560x1440 \n 2: 1920x1080 \n 3: 1600x900 "
+                 "\n 4: 1280x720 \n => ";
     std::cout.flush();
     std::cin >> resolution;
     std::cout << resolution; 
