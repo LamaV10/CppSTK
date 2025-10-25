@@ -78,7 +78,8 @@ public:
 
 int main(int argc, char* argv[]) {
     // user input for the resolution
-    std::cout << "Resolution: 2560x1440 (1) 1920x1080 (2) 1600x900 (3) 1280x720 (4): ";
+    std::cout << "Resolution: \n 1: 2560x1440 \n 2: 1920x1080 \n 3: 1600x900 \n
+	4: 1280x720 \n => ";
     std::cout.flush();
     std::cin >> resolution;
     std::cout << resolution; 
@@ -140,7 +141,7 @@ int main(int argc, char* argv[]) {
 	    car2.pos.y = 1335.0; 
 	    break;
 	case 2:
-	    //FHD 192x1080
+	    //FHD 1920x1080
 	    car1.pos.x = 580.0;
 	    car2.pos.x = 605.0;
 	    car1.pos.y = 785.0; 
