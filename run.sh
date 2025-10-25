@@ -1,3 +1,3 @@
 # !/bin/bash
-cd Source/
+cd src/
 ./CppSTK
